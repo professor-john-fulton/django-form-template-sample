@@ -220,10 +220,16 @@ This simple application demonstrates Django's core features: **views, URLs, temp
 
 ## Misc. Commands
 
-python manage.py createsuperuser
+virtualenv env
 
-python manage.py runserver
+source ./env/Srcipts/activate
+
+pip install django
 
 python manage.py makemigrations
 
 python manage.py migrate
+
+python manage.py createsuperuser
+
+python manage.py runserver
