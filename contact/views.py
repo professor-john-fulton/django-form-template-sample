@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .forms import ContactForm
+from .models import ContactMessage
 
 def contact_view(request):
     if request.method == 'POST':
@@ -7,6 +8,10 @@ def contact_view(request):
         if form.is_valid():
             # Process the data (e.g., save to a database or send an email)
             cleaned_data = form.cleaned_data
+            
+            if form.is_valid():
+                ContactMessage.objects.create(**form.cleaned_data)
+    
             print(cleaned_data)  # Example processing
             return render(request, 'contact/thank_you.html')  # Redirect to a thank-you page
     else:

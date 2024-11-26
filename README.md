@@ -6,8 +6,14 @@ ChatGPT prompt: "Create a simple Django application that demonstrates views, URL
 
 ### Step 1: Set Up Your Django Project
 
-0. **Vitual Environment**
+0. **Vitual Environment** (Optional)
     Using you favorite virtual environment tool for Python, create an environment and switch into it.
+  
+    ```bash
+    pip install virtualenv 
+    virtualenv env
+    source ./enc/Scripts/activate
+    ``
 
 1. **Install Django**:
    If Django isn't already installed, run:
@@ -183,6 +189,9 @@ ChatGPT prompt: "Create a simple Django application that demonstrates views, URL
        email = models.EmailField()
        message = models.TextField()
        submitted_at = models.DateTimeField(auto_now_add=True)
+
+       def __str__(self):
+          return f"{self.name} - {self.email} - {self.message}"
    ```
 
    Then update the form view to save the data:
@@ -192,10 +201,29 @@ ChatGPT prompt: "Create a simple Django application that demonstrates views, URL
    if form.is_valid():
        ContactMessage.objects.create(**form.cleaned_data)
    ```
+2. **Add data to admin**:
+    In contacts/admin.py
+   ```python
 
-2. **Style the Form**:
+    from django.contrib import admin
+    from .models import ContactMessage
+
+    admin.site.register(ContactMessage)
+    ```
+
+3. **Style the Form**:
    Use CSS to make the form look better, or integrate a library like Bootstrap.
 
 ---
 
 This simple application demonstrates Django's core features: **views, URLs, templates, and forms**. You can expand it further to add functionality like sending emails or managing submissions through the admin interface.
+
+## Misc. Commands
+
+python manage.py createsuperuser
+
+python manage.py runserver
+
+python manage.py makemigrations
+
+python manage.py migrate
