@@ -13,7 +13,7 @@ def contact_view(request):
                 ContactMessage.objects.create(**form.cleaned_data)
     
             print(cleaned_data)  # Example processing
-            return render(request, 'contact/thank_you.html')  # Redirect to a thank-you page
+            return render(request, 'contact/thank_you.html', {'name': cleaned_data["name"]})  # Redirect to a thank-you page
     else:
         form = ContactForm()
         return render(request, 'contact/contact.html', {'form': form})
