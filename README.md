@@ -13,7 +13,7 @@ ChatGPT prompt: "Create a simple Django application that demonstrates views, URL
     pip install virtualenv 
     virtualenv env
     source ./enc/Scripts/activate
-    ``
+    ```
 
 1. **Install Django**:
    If Django isn't already installed, run:
@@ -222,7 +222,7 @@ This simple application demonstrates Django's core features: **views, URLs, temp
 
 virtualenv env
 
-source ./env/Srcipts/activate
+source ./env/Scripts/activate
 
 pip install django
 
